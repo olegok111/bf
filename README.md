@@ -1,2 +1,2 @@
 # bf
-my own brainf*** visualizer / PyQt5 / passion project
+my own brainf__k visualizer / PyQt5 / passion project

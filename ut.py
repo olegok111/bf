@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 # -*- coding:utf-8 -*-
+import re
+
 
 DEFAULT_PRG_NAME = 'pythonic-bf'
 DEFAULT_VERSION = '0601.00'
@@ -10,15 +12,11 @@ MEM_MAX_VALUE = 256
 STRIP_LENGTH = 32
 
 
-def input_file(filename: str = 'code.txt') -> (str, str):  # TODO: optimize using regex
-    s = ''
-    s_cut = ''
+def input_file(filename: str = 'code.txt') -> (str, str):
     with open(filename, mode='r', encoding='utf8') as infile:
         s = infile.read()
         fit_chars = '+-[]<>.,'
-        for c in s:
-            if c in fit_chars:
-                s_cut += c
+        s_cut = ''.join(re.findall(fit_chars, s))
     return s, s_cut
 
 

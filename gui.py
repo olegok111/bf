@@ -3,6 +3,7 @@
 
 import sys
 import ut
+from config import*
 from PyQt5.QtWidgets import QApplication, QWidget
 
 
@@ -10,8 +11,8 @@ def main(title_info: ut.TitleInfo) -> None:
     app = QApplication(sys.argv)
 
     w = QWidget()
-    w.resize(*ut.RESOLUTION)
-    w.move(*ut.INIT_WINDOW_POS)
+    w.resize(*RESOLUTION)
+    w.move(*INIT_WINDOW_POS)
     w.setWindowTitle(title_info.title)
     w.show()
 
@@ -19,5 +20,5 @@ def main(title_info: ut.TitleInfo) -> None:
 
 
 if __name__ == '__main__':
-    t_inf = ut.TitleInfo(title_override='gui.py testing mode')
+    t_inf = ut.TitleInfo()
     main(t_inf)

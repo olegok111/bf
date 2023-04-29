@@ -1,18 +1,10 @@
 #!/usr/bin/python3
 # -*- coding:utf-8 -*-
 import re
+from config import*
 
 
-DEFAULT_PRG_NAME = 'pythonic-bf'
-DEFAULT_VERSION = '0601.00'
-DEFAULT_AUTHOR = 'nonD'
-RESOLUTION = (1024, 768)
-INIT_WINDOW_POS = (125, 75)
-MEM_MAX_VALUE = 256
-STRIP_LENGTH = 32
-
-
-def input_file(filename: str = 'code.txt') -> (str, str):
+def input_file(filename: str = 'code.txt') -> tuple[str, str]:
     with open(filename, mode='r', encoding='utf8') as infile:
         s = infile.read()
         fit_chars = '+-[]<>.,'
@@ -31,7 +23,7 @@ class TitleInfo:
     ):
         self.title = ''
         if title_override is None:
-            self.title = '{} v.{} by {}'.format(name, ver, author)
+            self.title = '{} ver {} by {}'.format(name, ver, author)
         else:
             self.title = title_override
 
